@@ -30,16 +30,26 @@ export default function Content() {
  
   }
   return (
-    <div>
-      <form onSubmit={handlebtn} >
-        <label>Income:</label>
-        <input type="number"
-        value={inputvalue}
-        onChange={(e)=>setInputvalue(e.target.value)} />
-        <button type='submit' >Add to Total Money</button>
-      </form>
-      <p>Your First Add Money is:{total}</p>
-      <div>
+    <>
+    <div className='p-4'>
+      <div className='flex flex-row justify-center  gap-2 p-2  rounded-lg'>
+        <div className='flex flex-col  shadow-2xl gap-3 items-center justify-center text-black  px-8 py-4 rounded-md md:flex-row sm:flex-col'>
+        <form onSubmit={handlebtn} >
+          <label className='p-1  font-semibold font-jetbrains'>Income</label>
+          <input  className='m-2 border-2 transition ease-in-out delay-150  hover:scale-110 duration-400 px-2 py-1 rounded-md  focus:outline-none placeholder:font-extralight' type="number" value={inputvalue} placeholder='amout please.. ' onChange={(e)=>setInputvalue(e.target.value)} />
+          <button className=" ml-2 px-5 py-2  bg-black text-white text-sm rounded-md font-semibold hover:shadow-lg hover:bg-black/[0.8] " type="submit">Add</button>
+         </form>
+       <p className='px-3 py-2 top-1 right-0  font-mono text-md bg-green-500 rounded-lg  text-white  hover:bg-green-600 cursor-pointer '>Total Income:{total}</p>
+        </div>
+      </div>
+
+      <div className='p-6 '>
+
+        <div>
+
+
+          
+        </div>
         <label>Expens Name:</label>
         <input type='text'
         placeholder='Exp Name..'
@@ -58,7 +68,12 @@ export default function Content() {
       ))}
     </ul>
     <p>Reaming Your Money:{NewTotalValue}</p>
+    
       </div>
+    
+    </>
+
+    
   )
 }
   
