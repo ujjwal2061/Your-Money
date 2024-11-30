@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 
 export default function Content() {
   const [total ,setTotal]=useState(0);
-  const[inputvalue,setInputvalue]=useState("")
+  const [inputvalue,setInputvalue]=useState("")
   const [name,setName]=useState("");
   const [amount,setAmount]=useState("")
-  const[allOver,setAllover]=useState([]);
+  const [allOver,setAllover]=useState([]);
   const [NewTotalValue,setNewTotalValue]=useState("")
 
   const handlebtn=(event)=>{
@@ -15,16 +15,18 @@ export default function Content() {
     setInputvalue("")
   }
   const handleraddbtn=(e)=>{
- e.preventDefault();
+      e.preventDefault();
+      //-> object of the NewEpensev that store the name and amount  
      const newExpensev= {
       name,
      amount:parseFloat(amount)
     }
      const Newtotal=total-parseFloat(amount)
-   setAllover([...allOver,newExpensev])
-   setNewTotalValue(Newtotal)
-   setAmount("") 
-   setName("")
+     //-> this part show the all expense list in the array fromat where there is allover and newExpenseve 
+    setAllover([...allOver,newExpensev])
+    setNewTotalValue(Newtotal)
+    setAmount("") 
+    setName("")
  
   }
   return (
@@ -52,8 +54,7 @@ export default function Content() {
       </div>
       <ul>
       {allOver.map((exp, index)=>(
-
-              <li key={index}><span>{exp.name}</span>::<span>{exp.amount}</span></li>
+  <li key={index}><span>{exp.name}</span>::<span>{exp.amount}</span></li>
       ))}
     </ul>
     <p>Reaming Your Money:{NewTotalValue}</p>
