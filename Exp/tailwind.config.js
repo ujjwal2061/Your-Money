@@ -6,7 +6,8 @@ export default {
     extend: {
       fontFamily:{
         bungee:["Bungee Spice","sans-serif"] ,
-        jetbrains:[ "JetBrains Mono", "serif"] 
+        jetbrains:[ "JetBrains Mono", "serif"] ,
+        itim:[ "Itim"]
       }
     },
   },
