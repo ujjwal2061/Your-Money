@@ -43,24 +43,16 @@ export default function Content() {
         </div>
       </div>
 
-      <div className='p-6 '>
-
-        <div>
-
-
-          
+      <div className='p-3 m-2'>
+        <div className='p-1 flex flex-row justify-center rounded-lg gap-2 '>
+          <form onSubmit={handleraddbtn} className='p-3 flex  flex-row items-center justify-center gap-2  focus:bg-green-300 rounded-lg text-black'>
+          <label className='p-1  font-itim font-semibold text-lg'>Expens Name</label>
+          <input className='m-2  px-2 py-1 border-2 rounded-md placeholder:font-mono outline-none  focus:border-green-600' type='text' placeholder='Exp Name..' value={name} onChange={(e)=>setName(e.target.value)} />
+          <label className='p-1 font-itim  font-semibold text-lg'>Amount</label>
+          <input   className=" m-2 px-2 py-1 rounded-lg placeholder:font-mono outline-none border-2 focus:border-red-600" type='number' placeholder='Amount..' value={amount} onChange={(e)=>setAmount(e.target.value)} />
+          <button className=" ml-2 px-5 py-2  bg-rose-700 text-white text-sm rounded-md font-semibold hover:shadow-lg hover:bg-rose-500 " type="submit">Add</button>
+          </form>
         </div>
-        <label>Expens Name:</label>
-        <input type='text'
-        placeholder='Exp Name..'
-        value={name}
-        onChange={(e)=>setName(e.target.value)} />
-        <label>Amount:</label>
-        <input type='number'
-        placeholder='Amount....'
-        value={amount}
-        onChange={(e)=>setAmount(e.target.value)} />
-         <button onClick={handleraddbtn}>Add</button>
       </div>
       <ul>
       {allOver.map((exp, index)=>(
