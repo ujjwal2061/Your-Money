@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import {useRef} from 'react'
 
 export default function Content() {
+  const spanRef = useRef(null);
   const [total ,setTotal]=useState(0);
   const [inputvalue,setInputvalue]=useState("")
   const [name,setName]=useState("");
@@ -20,6 +22,10 @@ export default function Content() {
      const newExpensev= {
       name,
      amount:parseFloat(amount)
+    }
+    if (spanRef.current) {
+      spanRef.current.style.backgroundColor = "red";
+      spanRef.current.style.color="white";
     }
      const Newtotal=total-parseFloat(amount)
      //-> this part show the all expense list in the array fromat where there is allover and newExpenseve 
@@ -55,14 +61,16 @@ export default function Content() {
         </div>
       </div>
       <div className='p-4'>
-      <ul className=' px-3 py-2  text-white bg-black flex flex-row rounded-lg '>
+      <ul className=' px-3 py-2  text-white bg-black flex flex-col rounded-lg '>
       {allOver.map((exp, index)=>(
-       <li className='p-2 bg-orange-600' key={index}><span>{exp.name}</span><span>{exp.amount}</span></li>
+       <li className='p-2  flex justify-around' key={index}><span className='border-r-4  border-gray-600 border-b-0 border-t-0 border-l-0 w-1/3 px-2'>{exp.name}</span><span className='border-r-4  border-gray-600 border-b-0 border-t-0 border-l-0 w-1/3 px-2'>{exp.amount}</span>
+       </li>
+      
       ))}
     </ul>
       </div>
       <div className='p-3 m-2'>
-      <span className='absoulte bottom-0 left-1/3 ml-64 bg-green-500 font-semibold text-black px-3 py-2 rounded-md'>Reaming Your Money:{NewTotalValue}</span>
+      <span  ref={spanRef} className='absoulte bottom-0 left-1/3 ml-64 bg-green-500 font-semibold text-black px-3 py-2 rounded-md'>Reaming Your Money:{NewTotalValue}</span>
       </div>
       </div>
     </>
