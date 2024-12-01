@@ -26,19 +26,23 @@ export default function Content() {
     if (spanRef.current) {
       spanRef.current.style.backgroundColor = "red";
       spanRef.current.style.color="white";
+      spanRef.current.style.hover="lightred";
     }
      const Newtotal=total-parseFloat(amount)
+     console.log(Newtotal);
+     
+    //  const NewValue=Newtotal-parseFloat(amount)
      //-> this part show the all expense list in the array fromat where there is allover and newExpenseve 
     setAllover([...allOver,newExpensev])
     setNewTotalValue(Newtotal)
     setAmount("") 
     setName("")
- 
+  
   }
   return (
     <>
-    <div className='p-4 relative '>
-      <div className='flex flex-row justify-center  gap-2 p-2  rounded-lg'>
+   <div className='p-4'>
+      <div className='flex flex-row justify-center  gap-2 p-2  rounded-lg '>
         <div className='flex flex-col  shadow-2xl gap-3 items-center justify-center text-black  px-8 py-4 rounded-md md:flex-row sm:flex-col'>
         <form onSubmit={handlebtn} >
           <label className='p-1  font-semibold font-jetbrains'>Income</label>
@@ -50,29 +54,29 @@ export default function Content() {
       </div>
 
       <div className='p-3 m-2'>
-        <div className='p-1 flex flex-row justify-center rounded-lg gap-2 '>
-          <form onSubmit={handleraddbtn} className='p-3 flex  flex-row items-center justify-center gap-2  focus:bg-green-300 rounded-lg text-black'>
+        <div className='flex flex-row justify-center  gap-2 p-1 rounded-lg'>
+        <div className='bg-gray-600 py-2 px-2 flex flex-col justify-center  items-center rounded-lg gap-2 md:flow-row  sm:flex-row '>
+          <form onSubmit={handleraddbtn}>
           <label className='p-1  font-itim font-semibold text-lg'>Expens Name</label>
           <input className='m-2  px-2 py-1 border-2 rounded-md placeholder:font-mono outline-none   focus: focus:border-green-600' type='text' placeholder='Exp Name..' value={name} onChange={(e)=>setName(e.target.value)} />
           <label className=' p-1 font-itim font-semibold text-lg'>Amount</label>
           <input className='m-2  px-2 py-1 border-2 rounded-md placeholder: font-mono outline-none   focus:border-red-600' type='number' placeholder='Amount..' value={amount} onChange={(e)=>setAmount(e.target.value)} />
-          <button  className=" px-4 py-2 bg-rose-600 font-mono tracking-tight  text-white text-sm rounded-md font-semibold hover:shadow-lg hover:bg-rose-400 cursor-pointer  hover:text-gray-600"  type='submit'>Add</button>
+          <button  className=" px-4 py-2 bg-rose-600 font-mono   tracking-tight  text-white text-sm rounded-md font-semibold hover:shadow-lg hover:bg-rose-400 cursor-pointer  hover:text-gray-600"  type='submit'>Add</button>
           </form>
         </div>
       </div>
-      <div className='p-4'>
-      <ul className=' px-3 py-2  text-white bg-black flex flex-col rounded-lg '>
-      {allOver.map((exp, index)=>(
-       <li className='p-2  flex justify-around' key={index}><span className='border-r-4  border-gray-600 border-b-0 border-t-0 border-l-0 w-1/3 px-2'>{exp.name}</span><span className='border-r-4  border-gray-600 border-b-0 border-t-0 border-l-0 w-1/3 px-2'>{exp.amount}</span>
-       </li>
-      
-      ))}
-    </ul>
+      <div className='p-4 mt-2'>
+          <ul className=' px-3 py-2  mt-4 text-black flex flex-col rounded-lg '>
+             {allOver.map((exp, index)=>(
+           <li className='p-2  flex justify-around' key={index}><span className='border-r-4  font-mono font-semibold border-gray-600 text-lg border-b-0 border-t-0 border-l-0 w-1/3 px-2'>- {exp.name}</span><span className='border-r-4  font-itim font-semibold border-gray-600 border-b-0 border-t-0 border-l-0 w-1/3 px-2'>Rs:{exp.amount}</span> </li> ))}
+           </ul>
+     </div>
+    </div>
+      <div className='p-3 m-2 flex flex-col items-center justify-center md:flex-row '>
+        <span  ref={spanRef} className='transition ease-in-out delay-150 hover:-translate-y-1  hover:scale-110  hover:bg-green-600 cursor-pointer  font-mono  bg-green-500 font-semibold text-black px-3 py-2 rounded-md'>Reaming Your Money:{NewTotalValue}</span>
       </div>
-      <div className='p-3 m-2'>
-      <span  ref={spanRef} className='absoulte bottom-0 left-1/3 ml-64 bg-green-500 font-semibold text-black px-3 py-2 rounded-md'>Reaming Your Money:{NewTotalValue}</span>
-      </div>
-      </div>
+  </div>
+  
     </>
   )
 }
