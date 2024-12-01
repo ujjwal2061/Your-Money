@@ -31,7 +31,7 @@ export default function Content() {
   }
   return (
     <>
-    <div className='p-4'>
+    <div className='p-4 relative '>
       <div className='flex flex-row justify-center  gap-2 p-2  rounded-lg'>
         <div className='flex flex-col  shadow-2xl gap-3 items-center justify-center text-black  px-8 py-4 rounded-md md:flex-row sm:flex-col'>
         <form onSubmit={handlebtn} >
@@ -46,26 +46,26 @@ export default function Content() {
       <div className='p-3 m-2'>
         <div className='p-1 flex flex-row justify-center rounded-lg gap-2 '>
           <form onSubmit={handleraddbtn} className='p-3 flex  flex-row items-center justify-center gap-2  focus:bg-green-300 rounded-lg text-black'>
-          <label className='p-1 font-itim font-semibold text-lg'>Expens Name</label>
-          <input className='m-2  px-2 py-1 border-2 rounded-md placeholder:font-mono outline-none  focus:border-green-600' type='text' placeholder='Exp Name..' value={name} onChange={(e)=>setName(e.target.value)} />
-          <label className='p-1 font-itim  font-semibold text-lg'>Amount</label>
-          <input   className=" m-2 px-2 py-1 rounded-lg placeholder:font-mono outline-none border-2 focus:border-red-600" type='number' placeholder='Amount..' value={amount} onChange={(e)=>setAmount(e.target.value)} />
-          <button className=" ml-2 px-5 py-2  bg-rose-700 text-white text-sm rounded-md font-semibold hover:shadow-lg hover:bg-rose-500 " type="submit">Add</button>
+          <label className='p-1  font-itim font-semibold text-lg'>Expens Name</label>
+          <input className='m-2  px-2 py-1 border-2 rounded-md placeholder:font-mono outline-none   focus: focus:border-green-600' type='text' placeholder='Exp Name..' value={name} onChange={(e)=>setName(e.target.value)} />
+          <label className=' p-1 font-itim font-semibold text-lg'>Amount</label>
+          <input className='m-2  px-2 py-1 border-2 rounded-md placeholder: font-mono outline-none   focus:border-red-600' type='number' placeholder='Amount..' value={amount} onChange={(e)=>setAmount(e.target.value)} />
+          <button  className=" px-4 py-2 bg-rose-600 font-mono tracking-tight  text-white text-sm rounded-md font-semibold hover:shadow-lg hover:bg-rose-400 cursor-pointer  hover:text-gray-600"  type='submit'>Add</button>
           </form>
         </div>
       </div>
-      <ul>
+      <div className='p-4'>
+      <ul className=' px-3 py-2  text-white bg-black flex flex-row rounded-lg '>
       {allOver.map((exp, index)=>(
-  <li key={index}><span>{exp.name}</span>::<span>{exp.amount}</span></li>
+       <li className='p-2 bg-orange-600' key={index}><span>{exp.name}</span><span>{exp.amount}</span></li>
       ))}
     </ul>
-    <p>Reaming Your Money:{NewTotalValue}</p>
-    
       </div>
-    
+      <div className='p-3 m-2'>
+      <span className='absoulte bottom-0 left-1/3 ml-64 bg-green-500 font-semibold text-black px-3 py-2 rounded-md'>Reaming Your Money:{NewTotalValue}</span>
+      </div>
+      </div>
     </>
-
-    
   )
 }
   
