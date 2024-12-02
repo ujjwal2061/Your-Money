@@ -10,7 +10,6 @@ export default function Footer() {
          </div>
          <p className=" bg-teal-200 rounded-lg px-3 py-2 shadow-xl  underline font-itim text-xl">I will add more Feature in this Project && Don't Forget to Follow me</p>
          </div>
-      
     </section>
   )
 }
