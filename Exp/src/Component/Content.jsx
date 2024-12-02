@@ -14,8 +14,10 @@ export default function Content() {
     event.preventDefault()
     //-> the parseFloat is use to convert the inputvalue to the number 
     setTotal((total)=>total+parseFloat(inputvalue))
+    setInputvalue((prevTotal)=>prevTotal+parseFloat(inputvalue))
     setInputvalue("")
   }
+
   const handleraddbtn=(e)=>{
       e.preventDefault();
       //-> object of the NewEpensev that store the name and amount  
@@ -23,20 +25,19 @@ export default function Content() {
       name,
      amount:parseFloat(amount)
     }
+      const Newtotal=NewTotalValue ? parseFloat(NewTotalValue):total;
+     const value=Newtotal-parseFloat(amount)
+
+     //-> this part show the all expense list in the array fromat where there is allover and newExpenseve 
+    setAllover([...allOver,newExpensev])
+    setNewTotalValue(value)
+    setAmount("") 
+    setName("")
     if (spanRef.current) {
       spanRef.current.style.backgroundColor = "red";
       spanRef.current.style.color="white";
       spanRef.current.style.hover="lightred";
-    }
-     const Newtotal=total-parseFloat(amount)
-     console.log(Newtotal);
-     
-    //  const NewValue=Newtotal-parseFloat(amount)
-     //-> this part show the all expense list in the array fromat where there is allover and newExpenseve 
-    setAllover([...allOver,newExpensev])
-    setNewTotalValue(Newtotal)
-    setAmount("") 
-    setName("")
+    }  
   
   }
   return (
@@ -73,7 +74,7 @@ export default function Content() {
      </div>
     </div>
       <div className='p-3 m-2 flex flex-col items-center justify-center md:flex-row '>
-        <span  ref={spanRef} className='transition ease-in-out delay-150 hover:-translate-y-1  hover:scale-110  hover:bg-green-600 cursor-pointer  font-mono  bg-green-500 font-semibold text-black px-3 py-2 rounded-md'>Reaming Your Money:{NewTotalValue}</span>
+        <span  ref={spanRef} className='transition ease-in-out delay-150 hover:-translate-y-1  hover:scale-110  hover:bg-green-600 cursor-pointer  font-mono  bg-green-500 font-semibold text-black px-3 py-2 rounded-md'>Reaming Balance:{NewTotalValue}</span>
       </div>
   </div>
   
