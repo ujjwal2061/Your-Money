@@ -56,20 +56,20 @@ export default function Content() {
 
       <div className='p-3 m-2'>
         <div className='flex flex-row justify-center  gap-2 p-1 rounded-lg'>
-        <div className='bg-gray-600 py-2 px-2 flex flex-col justify-center  items-center rounded-lg gap-2 md:flow-row  sm:flex-row '>
+        <div className='bg-gray-600 py-2 px-2 flex flex-col justify-center  items-start rounded-lg gap-2 md:flow-row   sm:flex-row '>
           <form onSubmit={handleraddbtn}>
           <label className='p-1  font-itim font-semibold text-lg'>Expens Name</label>
           <input className='m-2  px-2 py-1 border-2 rounded-md placeholder:font-mono outline-none   focus: focus:border-green-600' type='text' placeholder='Exp Name..' value={name} onChange={(e)=>setName(e.target.value)} />
-          <label className=' p-1 font-itim font-semibold text-lg'>Amount</label>
-          <input className='m-2  px-2 py-1 border-2 rounded-md placeholder: font-mono outline-none   focus:border-red-600' type='number' placeholder='Amount..' value={amount} onChange={(e)=>setAmount(e.target.value)} />
+          <label className=' p-1 font-itim font-semibold text-lg '>Amount</label>
+          <input className='m-2  px-2 py-1 border-2 rounded-md placeholder: font-mono outline-none   md:w-64  sm:w-52 focus:border-red-600' type='number' placeholder='Amount..' value={amount} onChange={(e)=>setAmount(e.target.value)} />
           <button  className=" px-4 py-2 bg-rose-600 font-mono   tracking-tight  text-white text-sm rounded-md font-semibold hover:shadow-lg hover:bg-rose-400 cursor-pointer  hover:text-gray-600"  type='submit'>Add</button>
           </form>
         </div>
       </div>
-      <div className='p-4 mt-2'>
-          <ul className=' px-3 py-2  mt-4 text-black flex flex-col rounded-lg '>
+      <div className='p-4'>
+          <ul className=' px-3 py-2  mt-2 text-black flex flex-col rounded-lg '>
              {allOver.map((exp, index)=>(
-           <li className='p-2  flex justify-around' key={index}><span className='border-r-4  font-mono font-semibold border-gray-600 text-lg border-b-0 border-t-0 border-l-0 w-1/3 px-2'>- {exp.name}</span><span className='border-r-4  font-itim font-semibold border-gray-600 border-b-0 border-t-0 border-l-0 w-1/3 px-2'>Rs:{exp.amount}</span> </li> ))}
+            <li className='p-2 flex flex-row justify-around ' key={index}><span className='border-r-4  font-mono font-semibold border-gray-600 text-lg border-b-0 border-t-0 border-l-0  w-32 px-1'>{exp.name}</span><span className='border-r-4  font-itim font-semibold  border-b-0 border-t-0 border-l-0 w-32 px-1'>Rs:{exp.amount}</span> </li> ))}
            </ul>
      </div>
     </div>
