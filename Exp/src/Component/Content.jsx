@@ -12,10 +12,15 @@ export default function Content() {
 
   const handlebtn=(event)=>{
     event.preventDefault()
-    //-> the parseFloat is use to convert the inputvalue to the number 
-    setTotal((total)=>total+parseFloat(inputvalue))
-    setInputvalue((prevTotal)=>prevTotal+parseFloat(inputvalue))
-    setInputvalue("")
+    if(parseFloat(inputvalue)==0  &&  parseFloat(inputvalue)==" "){
+      alert("Value can't be Zero:")
+    }else{
+      //-> the parseFloat is use to convert the inputvalue to the number 
+      setTotal((total)=>total+parseFloat(inputvalue))
+      setInputvalue((prevTotal)=>prevTotal+parseFloat(inputvalue))
+      setInputvalue("")
+    
+    }
   }
 
   const handleraddbtn=(e)=>{
@@ -27,7 +32,8 @@ export default function Content() {
     }
       const Newtotal=NewTotalValue ? parseFloat(NewTotalValue):total;
      const value=Newtotal-parseFloat(amount)
-
+     // check the Reamaing value with the Zero 
+     
      //-> this part show the all expense list in the array fromat where there is allover and newExpenseve 
     setAllover([...allOver,newExpensev])
     setNewTotalValue(value)
