@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import {useRef} from 'react'
+import Pop from './Pop';
 
-export default function Content() {
+export default function Content({}) {
   const spanRef = useRef(null);
   const [total ,setTotal]=useState(0);
   const [inputvalue,setInputvalue]=useState("")
@@ -9,18 +10,17 @@ export default function Content() {
   const [amount,setAmount]=useState("")
   const [allOver,setAllover]=useState([]);
   const [NewTotalValue,setNewTotalValue]=useState("")
+  const [showPop, setShowPop] = useState(true); 
 
   const handlebtn=(event)=>{
     event.preventDefault()
-    if(parseFloat(inputvalue)==0  &&  parseFloat(inputvalue)==" "){
-      alert("Value can't be Zero:")
-    }else{
+    // pass the value to pop as a props 
+       setShowPop(false);
+       <Pop value={inputvalue} showPop={showPop} />
       //-> the parseFloat is use to convert the inputvalue to the number 
       setTotal((total)=>total+parseFloat(inputvalue))
       setInputvalue((prevTotal)=>prevTotal+parseFloat(inputvalue))
       setInputvalue("")
-    
-    }
   }
 
   const handleraddbtn=(e)=>{
