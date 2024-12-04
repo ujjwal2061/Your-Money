@@ -13,12 +13,7 @@ export default function Content() {
   const [showPop, setShowPop] = useState(false); 
   const  showPopHandler =()=> setShowPop(true);
 
-    useEffect (()=>{
-    const timer=setTimeout(()=>{
-      setShowPop(false);
-    },2000)
-    return  ()=>clearTimeout(timer);
-    },[showPop]) 
+ 
 
   const handlebtn=(event)=>{
     event.preventDefault()
@@ -27,7 +22,7 @@ export default function Content() {
         showPopHandler();
       }else{
         setTotal((total)=>total+parseFloat(inputvalue))
-        setInputvalue((prevTotal)=>prevTotal+parseFloat(inputvalue))
+        setInputvalue("")
         setInputvalue("")
 
       }
@@ -53,17 +48,18 @@ export default function Content() {
     if (spanRef.current) {
       spanRef.current.style.backgroundColor = "red";
       spanRef.current.style.color="white";
-      spanRef.current.style.hover="lightred";
+    
     }  
   
   }
   return (
     <>
+            
+        <Pop Show={showPop}  setShowPop={setShowPop}/>
    <div className='p-4'>
       <div className='flex flex-row justify-center  gap-2 p-2  rounded-lg '>
         <div className='flex flex-col  shadow-2xl gap-3 items-center justify-center text-black  px-8 py-4 rounded-md md:flex-row sm:flex-col'>
         <form onSubmit={handlebtn} >
-        {showPop && <Pop   see={showPop}   setshow={setShowPop} value={parseFloat(inputvalue)} />}
           <label className='p-1  font-semibold font-jetbrains'>Income</label>
           <input  className='m-2 border-2 transition ease-in-out delay-150  hover:scale-110 duration-400 px-2 py-1 rounded-md  focus:outline-none placeholder:font-extralight' type="number" value={inputvalue} placeholder='amout please.. ' onChange={(e)=>setInputvalue(e.target.value)} />
           <button className=" ml-2 px-5 py-2  bg-black text-white text-sm rounded-md font-semibold hover:shadow-lg hover:bg-black/[0.8] " type="submit">Add</button>
