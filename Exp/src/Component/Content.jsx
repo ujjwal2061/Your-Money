@@ -56,7 +56,7 @@ export default function Content() {
     <>
             
         <Pop Show={showPop}  setShowPop={setShowPop}/>
-   <div className='p-4'>
+     <div className='p-4'>
       <div className='flex flex-row justify-center  gap-2 p-2  rounded-lg '>
         <div className='flex flex-col  shadow-2xl gap-3 items-center justify-center text-black  px-8 py-4 rounded-md md:flex-row sm:flex-col'>
         <form onSubmit={handlebtn} >
