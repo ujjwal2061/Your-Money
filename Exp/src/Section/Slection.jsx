@@ -1,12 +1,13 @@
-import React  from "react"
-import ToogleContext  from "./Toggle";
-const Selection=({children})=>{
-    const {toggle ,setToogle} =useState(ToogleContext)
-return (
-    <section className="relative w-full md:w-[850px] h-[100vh]    mx-auto">
-        <button onClick={()=>setToogle(toggle ==="white"?"black":"white")}>X</button>
+
+import { useState, createContext } from "react";
+export const ToogleContext=createContext("light")
+const ToogleProvider =({children})=>{
+    const [theme, setTheme] = useState("light");
+    return (
+
+        <ToogleContext.Provider value={{theme ,setTheme}}>
             {children}
-     </section>
-)
+        </ToogleContext.Provider>
+    )
 }
-export default Selection;
+export default ToogleProvider;
