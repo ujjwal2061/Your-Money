@@ -4,7 +4,7 @@ import Pop from './Pop';
 import { ToogleContext } from '../Section/Slection';
 
 export default function Content() {
-  const {theme}=useContext(ToogleContext)
+  const {toogle}=useContext(ToogleContext)
   const spanRef = useRef(null);
   const [total ,setTotal]=useState(0);
   const [inputvalue,setInputvalue]=useState("")
@@ -58,9 +58,9 @@ export default function Content() {
     <>
             
         <Pop Show={showPop}  setShowPop={setShowPop}/>
-     <div className={`p-4 ${theme==='dark' ? 'bg-gray-800 text-white':'bg-white text-black'}`}>
+     <div className='p-4'>
       <div className='flex flex-row justify-center  gap-2 p-2  rounded-lg '>
-        <div className='flex flex-col  shadow-2xl gap-3 items-center justify-center text-black  px-8 py-4 rounded-md md:flex-row sm:flex-col'>
+        <div className={`flex flex-col  shadow-2xl gap-3 items-center justify-center text-black  px-8 py-4 rounded-md md:flex-row sm:flex-col ${toogle==="dark"?"#333":"bg-white"}`}>
         <form onSubmit={handlebtn} >
           <label className='p-1  font-semibold font-jetbrains'>Income</label>
           <input  className='m-2 border-2 transition ease-in-out delay-150  hover:scale-110 duration-400 px-2 py-1 rounded-md  focus:outline-none placeholder:font-extralight' type="number" value={inputvalue} placeholder='amout please.. ' onChange={(e)=>setInputvalue(e.target.value)} />
