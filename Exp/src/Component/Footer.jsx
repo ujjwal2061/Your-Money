@@ -4,7 +4,7 @@ import { ToogleContext } from '../Section/Slection'
 export default function Footer() {
   const {theme}=useContext(ToogleContext)
   return (
-    <section className={` bottom-12  ${theme=='dark'? 'bg-gray-600 text-white':'bg-white text-black'}right-1 left-2 p-5   flex-col justify-center md:flex-row`}>
+    <section className=' bottom-12 right-1 left-2 p-5   flex-col justify-center md:flex-row'>
        <div className='p-2  rounded-md  flex flex-col items-center gap-2 justify-center md:flow-row '>
        <div className='px-7 py-3 flex flex-row justify-center gap-6 text-black rounded-md'>
            <a  className="hover:bg-gray-700  hover:text-white hover:rounded-md px-2 py-1"    href='https://x.com/Ujjwal_2061' target='_blank' ><i className="fa-brands fa-x-twitter"></i></a>
