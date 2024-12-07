@@ -5,7 +5,7 @@ export default function Header() {
   const {theme ,setTheme}=useContext(ToogleContext)
   const [toggle ,setToogle]=useState(theme)
   useEffect (()=>{
-document.body.style.background=theme==="dark"? '#333':"#fff"
+   document.body.style.background=theme==="dark"? '#333':"#fff"
   },[theme])
   const handleToogle =()=>{
     const newTheme=toggle==='dark'?'light':'dark';
