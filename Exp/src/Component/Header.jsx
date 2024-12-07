@@ -1,9 +1,12 @@
-import React  from 'react'
+import React, { useContext }  from 'react'
+import { ToogleContext } from '../Section/Slection'
 
 export default function Header() {
+  const {theme ,setTheme}=useContext(ToogleContext)
   return (
     <div className='p-2 relative '>
       <div className='flex flex-col  md:flex-row  justify-center  items-center  gap-4 '>
+        <button onClick={()=>setTheme(theme==='dark'?"light":'dark')}>❌</button>
         <div className=' m-3 px-2  py-2 shadow-xl rounded-lg cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1  hover:scale-110 hover:bg-black duration-400'>
         <h1 className='font-bungee' >Your Money Tracker </h1>
         </div>
