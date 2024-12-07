@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {useRef} from 'react'
 import Pop from './Pop';
+import { ToogleContext } from '../Section/Slection';
 
 export default function Content() {
+  const {theme}=useContext(ToogleContext)
   const spanRef = useRef(null);
   const [total ,setTotal]=useState(0);
   const [inputvalue,setInputvalue]=useState("")
@@ -56,7 +58,7 @@ export default function Content() {
     <>
             
         <Pop Show={showPop}  setShowPop={setShowPop}/>
-     <div className='p-4'>
+     <div className={`p-4 ${theme==='dark' ? 'bg-gray-800 text-white':'bg-white text-black'}`}>
       <div className='flex flex-row justify-center  gap-2 p-2  rounded-lg '>
         <div className='flex flex-col  shadow-2xl gap-3 items-center justify-center text-black  px-8 py-4 rounded-md md:flex-row sm:flex-col'>
         <form onSubmit={handlebtn} >
