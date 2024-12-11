@@ -16,7 +16,7 @@ export default function Header() {
     <div className='p-2 relative '>
       <div className='flex flex-col  md:flex-row  justify-center items-center  gap-4 '>
            {/* ADD THE BUTOON  FOR THE Toogle*/ }
-       <button  onClick={handleToogle} className=' absolute top-7 left-2 text-md  sm:left-48'> {toggle==='dark' ?<i className="fa-solid fa-sun bg-white px-2 py-1 rounded-full"></i>:<i className="fa-solid fa-moon bg-black rounded-full  text-white px-2 py-1"></i>}</button>
+       <button  onClick={handleToogle} className=' absolute top-7 left-2 text-md  sm:left-36'> {toggle==='dark' ?<i className="fa-solid fa-sun bg-white px-2 py-1 rounded-full"></i>:<i className="fa-solid fa-moon bg-black rounded-full  text-white px-2 py-1"></i>}</button>
         <div className={`${toggle==="dark"?"bg-slate-50":"bg-white"} m-3 px-2  py-2 shadow-xl rounded-lg cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1  hover:scale-110 hover:bg-black duration-400`}>
         <h1 className="font-bungee " >Your Money Tracker </h1>
         </div>
