@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import {useRef} from 'react'
 import Pop from './Pop';
 import { ToogleContext } from '../Section/Slection';
+import Graph from '../Roter/Graph';
 
 export default function Content() {
   const {toogle}=useContext(ToogleContext)
@@ -92,9 +93,10 @@ export default function Content() {
       <div className='p-3 m-2 flex flex-col items-center justify-center md:flex-row '>
         <span  ref={spanRef} className='transition ease-in-out delay-150 hover:-translate-y-1  hover:scale-110  hover:bg-green-600 cursor-pointer  font-mono  bg-green-500 font-semibold text-black px-3 py-2 rounded-md'>Reaming Balance:{NewTotalValue}</span>
       </div>
-  </div>
-
-  
+      <div className='ml-auto mr-[15%] flex flex-col justify-center items-center shadow-xl rounded-md md:flex-row w-full md:w-2/3  p-4 md:p-8'>
+      <Graph income={total} setincome={setTotal} expensev={NewTotalValue} setEpensev={setNewTotalValue} />
+    </div>
+  </div>  
     </>
   )
 }
