@@ -15,37 +15,37 @@ export default function Graph({income,expensev,}) {
    labels:["Income","Expenses"],
    datasets:[
     {
-      lable:"Your-Money",
-      data:[income  && expensev],
+      label:"Your-Income",
+      data:[income],
       backgroundColor: [
         'rgba(75, 192, 192, 0.6)',  
         'rgba(255, 99, 132, 0.6)'   
-      ],
-      
-      
+      ]
+    },
+      {
+      label:"Your-Expenses",
+      data:[expensev],
+      backgroundColor: ['rgba(255, 99, 132, 0.6)'   ],
       borderWidth:1,
       borderColor:"black",
       borderRadius: 10 
       
     }
-   ]
+   ] 
   }
   const chartOPtions={
     responsive:true,
-    plugis:{
+    plugins:{
       legend:{
-        postion:'top',
-        laable:{
-          color:'blue',
+        position:'top',
+        labels:{
+          color:'black',
             font:{
                 size:16
             }
           }
         },
-        title:{
-          dispaly:true,
-          text:'INcome vs Expenses',
-        }
+       
       }
     }
   
@@ -53,10 +53,9 @@ export default function Graph({income,expensev,}) {
    
   return (
    <>
-   <div className='shadow-lg flex flex-row justify-center items-center  w-1/2'>
-
-    <Bar data={chartdata} options={chartOPtions}  />
-   </div>
+   {/* <div className='shadow-lg flex flex-col justify-center items-center  w-1/2 md:flex-row'> */}
+    <Bar data={chartdata} options={chartOPtions}   />
+   {/* </div> */}
    </>
 
   )
