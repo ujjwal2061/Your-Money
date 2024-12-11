@@ -12,27 +12,30 @@ ChartJS.register(
 
 export default function Graph({income,expensev,}) {
   const chartdata={
+    
    labels:["Income","Expenses"],
    datasets:[
     {
       label:"Your-Income",
-      data:[income],
+      data:[income ,],
       backgroundColor: [
-        'rgba(75, 192, 192, 0.6)',  
-        'rgba(255, 99, 132, 0.6)'   
-      ]
+        'rgba(75, 192, 192, 0.6)',  ],
+        borderWidth:1,
+        borderColor:"black",
+        borderRadius: 10 ,   
     },
-      {
+  {
       label:"Your-Expenses",
-      data:[expensev],
-      backgroundColor: ['rgba(255, 99, 132, 0.6)'   ],
+      data:[0,expensev],
+      backgroundColor: ['rgba(255, 99, 132, 0.6)'],
       borderWidth:1,
       borderColor:"black",
-      borderRadius: 10 
-      
+      borderRadius:10 
     }
-   ] 
+    ]
   }
+  
+
   const chartOPtions={
     responsive:true,
     plugins:{
@@ -53,9 +56,7 @@ export default function Graph({income,expensev,}) {
    
   return (
    <>
-   {/* <div className='shadow-lg flex flex-col justify-center items-center  w-1/2 md:flex-row'> */}
     <Bar data={chartdata} options={chartOPtions}   />
-   {/* </div> */}
    </>
 
   )
