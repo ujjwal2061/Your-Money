@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {useRef} from 'react'
 import Pop from './Pop';
 import { ToogleContext } from '../Section/Slection';
@@ -56,7 +56,7 @@ export default function Content() {
     
     }  
     // // sum of the Expenses Amount [...spearet the Amount in the Array ]
-    const totalExpense = [...allOver,newExpensev.amount ].reduce((sum, expense) => sum + expense.amount, 0)|| expense;
+    const totalExpense = [...allOver,newExpensev ].reduce((sum, expense) => sum + expense.amount, 0);
     setTotalExpenses(totalExpense);
   
   }
