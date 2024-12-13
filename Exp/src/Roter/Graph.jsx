@@ -30,7 +30,7 @@ export default function Graph({income,expensev,Epenseve}) {
     {
       label:"Reamuing-Blance",
       data:[0,Epenseve],
-      backgroundColor:["rgba()"],
+      backgroundColor: ['rgba(0, 255, 0, 0.6)'],
       borderWidth:1,
       borderColor:"black",
       borderRadius:10 
@@ -38,7 +38,7 @@ export default function Graph({income,expensev,Epenseve}) {
   // Expenses Section Graph 
     {
         label:"Your-Expenses",
-        data:[0,expensev],
+        data:[0,0,expensev],
         backgroundColor: ['rgba(255, 99, 132, 0.6)'],
         borderWidth:1,
         borderColor:"black",
