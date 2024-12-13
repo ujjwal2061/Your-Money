@@ -5,17 +5,18 @@ import { ToogleContext } from '../Section/Slection';
 import Graph from '../Roter/Graph';
 
 export default function Content() {
-  const {toogle}=useContext(ToogleContext)
+  const {toogle}=useContext(ToogleContext)// -props of theme
   const spanRef = useRef(null);
   const [total ,setTotal]=useState(0);
   const [inputvalue,setInputvalue]=useState("")
   const [name,setName]=useState("");
   const [amount,setAmount]=useState("")
   const [allOver,setAllover]=useState([]);
-  const [NewTotalValue,setNewTotalValue]=useState("") 
+  const [NewTotalValue,setNewTotalValue]=useState("") // store the value after the subbtracing form the Total value to inputValue
   const [showPop, setShowPop] = useState(false); 
   const  showPopHandler =()=> setShowPop(true);
-
+  const [TotalExpenses,setTotalExpenses]=useState([])
+  
  
 
   const handlebtn=(event)=>{
@@ -24,8 +25,9 @@ export default function Content() {
       if(parseFloat(inputvalue)== 0){
         showPopHandler();
       }else{
-        setTotal((total)=>total+parseFloat(inputvalue))
-        setInputvalue("")
+        const newIncomeTotal=NewTotalValue ? NewTotalValue +parseFloat(inputvalue):total+parseFloat(inputvalue);// this check the newValue add to the total after making the First Expeneses 
+        setTotal(newIncomeTotal)
+        setNewTotalValue(newIncomeTotal)
         setInputvalue("")
 
       }
@@ -53,6 +55,9 @@ export default function Content() {
       spanRef.current.style.color="white";
     
     }  
+    // // sum of the Expenses Amount [...spearet the Amount in the Array ]
+    const totalExpense = [...allOver,newExpensev.amount ].reduce((sum, expense) => sum + expense.amount, 0)|| expense;
+    setTotalExpenses(totalExpense);
   
   }
   return (
@@ -61,7 +66,7 @@ export default function Content() {
         <Pop Show={showPop}  setShowPop={setShowPop}/>
      <div className='p-4'>
       <div className='flex flex-row justify-center  gap-2 p-2  rounded-lg '>
-        <div className={`flex flex-col  shadow-2xl gap-3 items-center justify-center text-black  px-8 py-4 rounded-md md:flex-row sm:flex-col ${toogle==="dark"?"#333":"bg-white"}`}>
+        <div className={`flex flex-col  shadow-2xl gap-3  items-center justify-center text-black  px-8 py-4 rounded-md md:flex-row sm:flex-col ${toogle==="dark"?"#333":"bg-white"}`}>
         <form onSubmit={handlebtn} >
           <label className='p-1  font-semibold font-jetbrains'>Income</label>
           <input  className='m-2 border-2 transition ease-in-out delay-150  hover:scale-110 duration-400 px-2 py-1 rounded-md  focus:outline-none placeholder:font-extralight' type="number" value={inputvalue} placeholder='amout please.. ' onChange={(e)=>setInputvalue(e.target.value)} />
@@ -94,7 +99,7 @@ export default function Content() {
         <span  ref={spanRef} className='transition ease-in-out delay-150 hover:-translate-y-1  hover:scale-110  hover:bg-green-600 cursor-pointer  font-mono  bg-green-500 font-semibold text-black px-3 py-2 rounded-md'>Reaming Balance:{NewTotalValue}</span>
       </div>
       <div className='ml-auto mr-[15%] flex flex-col justify-center items-center shadow-xl rounded-md md:flex-row w-full md:w-2/3  p-4 md:p-8'>
-      <Graph income={total} setincome={setTotal} expensev={NewTotalValue} setEpensev={setNewTotalValue} />
+      <Graph income={total}  expensev={TotalExpenses} Epenseve={NewTotalValue} />
     </div>
   </div>  
     </>
