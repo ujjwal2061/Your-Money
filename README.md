@@ -1,5 +1,5 @@
 # Expense Tracker with Chart View
-
+ ![Screenshot 2024-12-28 215122](https://github.com/user-attachments/assets/df33aa36-5d5d-4cd0-9c2e-8376eccb8962)
 
 
 ## Overview
